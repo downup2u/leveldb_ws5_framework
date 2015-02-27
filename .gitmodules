@@ -28,6 +28,7 @@
 [submodule "deps/encryptstring"]
 	path = deps/encryptstring
 	url = https://github.com/downup2u/encryptstring.git
-[submodule "src/commProtosrc"]
-	path = src/commProtosrc
+
+[submodule "protogen/commProtosrc"]
+	path = protogen/commProtosrc
 	url = https://github.com/downup2u/commProtosrc.git
