@@ -1,36 +1,25 @@
 {
-	'conditions': [
-		['OS=="win"', {
-			'variables': {
-				'module_root_dir':'../../proj',		
-			},
-		}],
-		['OS=="linux"',{ 
-			'variables': {
-				'module_root_dir':'../../proj',			
-			},
-		}]
-	],
+
 	'targets': [
 	{  
 		'target_name': "wscli",
 		'type':'executable',	
 		 'includes':[
-			'../../deps/osconfig.gypi',
-			'../../proj/configd.gypi',
+			'../deps/osconfig.gypi',
+			'../proj/configd.gypi',
 		],
 		'dependencies': [
-			'../../deps/protobuf3.gyp:protobuf_full_do_not_use',
-			'../../deps/json2pb.gyp:json2pb',
-			'../../deps/jansson.gyp:jansson',		
-			'../../deps/glog.gyp:glog',
+			'../deps/protobuf3.gyp:protobuf_full_do_not_use',
+			'../deps/json2pb.gyp:json2pb',
+			'../deps/jansson.gyp:jansson',		
+			'../deps/glog.gyp:glog',
 		],
 		'include_dirs': [
-			'../../deps/boost_1_57_0',
-			'../../deps/websocketpp-master',
-			'../../deps/protobuf3/src',
-			'../../deps/json2pb-master',
-			'../../deps/glog/src',
+			'../deps/boost_1_57_0',
+			'../deps/websocketpp-master',
+			'../deps/protobuf3/src',
+			'../deps/json2pb-master',
+			'../deps/glog/src',
 			'../src/proto',
 			'../src/proto/custommsg',
 			'../src/util',
