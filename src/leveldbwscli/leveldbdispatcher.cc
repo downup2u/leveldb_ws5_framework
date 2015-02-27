@@ -14,3 +14,7 @@ void leveldbdispatcher::registerCallback(boost::shared_ptr<ProtobufDispatcher> m
 void leveldbdispatcher::onmessage_t1(boost::shared_ptr<comminternal::PkgMsg> pMsgReq, boost::shared_ptr<sample_projectname::PkgOptTable1Req> pReq, boost::shared_ptr<comminternal::PkgSessionUser> pSessionUsr, const SessionCallBack callback){
 
 }
+
+void leveldbdispatcher::onmessage_t2(boost::shared_ptr<comminternal::PkgMsg> pMsgReq, boost::shared_ptr<sample_projectname::PkgOptTable2Req> pReq, boost::shared_ptr<comminternal::PkgSessionUser> pSessionUsr, const SessionCallBack callback){
+
+}
