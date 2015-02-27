@@ -1,0 +1,35 @@
+package sample_projectname;
+
+message db_table1{
+	optional string field1 = 1;
+	optional string field2 = 2;
+	
+};
+
+message db_table2{
+	optional string field1 = 1;
+	optional string field2 = 2;
+	
+};
+
+message db_table3{
+	optional string field1 = 1;
+	optional string field2 = 2;
+	optional string field3 = 3;
+};
+
+message db_table4{
+	optional string field1 = 1;
+	optional string field2 = 2;
+	optional string field3 = 3;
+	optional string field4 = 4;
+};
+
+message db_table5{
+	optional string field1 = 1;
+	optional string field2 = 2;
+	optional string field3 = 3;
+	optional string field4 = 4;
+	optional string field5 = 5;
+};
+

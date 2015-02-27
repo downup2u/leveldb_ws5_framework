@@ -1,7 +1,7 @@
 #include <string>
 #include <boost/make_shared.hpp>
 #include "wsclimain.h"
-#include "xkcrm.pb.h"
+#include "model_comm.pb.h"
 
 void onclient_msg(boost::shared_ptr<comminternal::PkgMsg> pMsgReply){
 	if (pMsgReply){
@@ -18,12 +18,12 @@ int main(int argc, char* argv[]) {
 	char ch = getchar();
 	while (ch != 'q'){
 		if (ch == 'l'){			
-			boost::shared_ptr<xkcrm::PkgUserLoginReq> pReq = boost::make_shared<xkcrm::PkgUserLoginReq>();
-			pReq->set_phonenumber("18118003691");
-			pReq->set_password("123456");
-			pReq->set_gettype(xkcrm::EnGetType::GT_PHONE);
-			boost::shared_ptr<comminternal::PkgMsg> pPkgMsg = codecutil::getClientMsg_InitWithMsg(pReq);
-			wsclimain::get_mutable_instance().send_messsage(pPkgMsg);
+			//boost::shared_ptr<xkcrm::PkgUserLoginReq> pReq = boost::make_shared<xkcrm::PkgUserLoginReq>();
+			//pReq->set_phonenumber("18118003691");
+			//pReq->set_password("123456");
+			//pReq->set_gettype(xkcrm::EnGetType::GT_PHONE);
+			//boost::shared_ptr<comminternal::PkgMsg> pPkgMsg = codecutil::getClientMsg_InitWithMsg(pReq);
+			//wsclimain::get_mutable_instance().send_messsage(pPkgMsg);
 		}
 		
 		ch = getchar();

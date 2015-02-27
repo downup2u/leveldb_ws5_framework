@@ -1,0 +1,90 @@
+import "model_db.proto";
+
+package sample_projectname;
+
+enum EnGetType{
+	GT_PHONE = 0;
+	GT_EMAIL = 1;
+	GT_USERID = 2;
+	GT_USERNAME = 3;
+}
+
+message PkgUserLoginReq {
+  required EnGetType gettype = 1[default = GT_PHONE];
+  optional int32 userid = 2;
+  optional string phonenumber = 3;
+  optional string emailaddress = 4;
+  optional string username = 5;
+  required string password = 10;
+  optional string hashedserversn = 100;
+}
+
+message PkgUserLoginReply{
+    required bool issuccess = 1[default = true];
+    optional string err = 2;
+}
+
+enum EnOperation{
+	TO_INSERT = 1;
+	TO_UPDATE = 16;
+	TO_DELETE = 64;
+}
+	
+message PkgOptTable1Req{
+	required EnOperation opt = 1;
+	optional db_table1 table1 = 2;
+	optional string fieldid = 3;
+}
+
+message PkgOptTable1Reply{
+   required bool issuccess = 1;
+   optional string err = 2;
+}
+
+message PkgOptTable2Req{
+	required EnOperation opt = 1;
+	optional db_table1 table2 = 2;
+	optional string fieldid = 3;
+}
+
+message PkgOptTable2Reply{
+   required bool issuccess = 1;
+   optional string err = 2;
+}
+
+
+message PkgQueryCondition{
+		optional string taskdatestart = 2;
+		optional string taskdateend = 3;
+		optional string keyforname = 4;
+		optional string keyforcontent = 5;
+		optional string keyfielduuid = 10;
+	}
+	
+	enum EnQueryCondition{
+		TQC_DATESTART = 1;
+		TQC_DATEEND = 2;
+		TQC_KEYFORNAME = 4;
+		TQC_KEYFORCONTENT = 8;
+		TQC_KEYFIELDUUID = 16;
+	}
+	enum EnPageFlag{
+		P_ONLYNUM = 1;
+		P_RETURNALL = 2;
+		P_RETURNPAGE = 3;
+	}
+	
+message PkgPageQueryTable1Req{
+	optional int32 enconditon = 2[default = 0];
+	optional PkgQueryCondition pkgquerycondition = 3;
+	optional EnPageFlag pageflag = 4 [default = P_RETURNALL];
+	optional int32 indexstart = 5;
+	optional int32 indexend = 6;
+}
+
+message PkgPageQueryTable1Reply{
+   required bool issuccess = 1;
+   optional string err = 2;
+   repeated db_table1 rows = 10;
+}
+  

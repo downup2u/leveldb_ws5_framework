@@ -21,10 +21,12 @@
 			'../deps/protobuf3/src',
 			'../deps/json2pb-master',
 			'../deps/glog/src',
+			'../deps/leveldb/include',
 			'../src/proto',
-			'../src/proto/custommsg',
+			'../src/proto/model',
 			'../src/util',
-		],
+
+			],
 		'sources': [ 
 			'../src/leveldbwscli/wscli.cc',
 			'../src/leveldbwscli/wscli.h',
@@ -40,10 +42,10 @@
 			'../src/util/nodeexception.h',
 			'../src/proto/packmsg.pb.cc',
 			'../src/proto/packmsg.pb.h',
-			'../src/proto/custommsg/xkcrm.pb.cc',
-			'../src/proto/custommsg/xkcrm.pb.h',
-			'../src/proto/custommsg/nosqldb.pb.cc',
-			'../src/proto/custommsg/nosqldb.pb.h',
+			'../src/proto/model/model_db.pb.cc',
+			'../src/proto/model/model_db.pb.h',
+			'../src/proto/model/model_comm.pb.cc',
+			'../src/proto/model/model_comm.pb.h',
 		],
 		'conditions': [
 			['OS=="win"', {

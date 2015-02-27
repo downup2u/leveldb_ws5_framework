@@ -1,10 +1,10 @@
 #include "codec.h"
-#include "nodeexception.h"
 #include <boost/algorithm/hex.hpp>
 #include <json2pb.h>
 #include <boost/uuid/uuid.hpp>  
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+#include "nodeexception.h"
 
 namespace codecutil
 {

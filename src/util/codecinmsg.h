@@ -2,7 +2,6 @@
 #define _CODECINMSGUTIL_STRING
 #include "codec.h"
 #include "packmsg.pb.h"
-#include <string>
 
 namespace codecutil
 {

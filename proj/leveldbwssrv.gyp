@@ -26,11 +26,9 @@
 			'../deps/glog/src',
 			'../deps/leveldb/include',
 			'../deps/encryptstring',
-			'../deps/include',
 			'../src/proto',
-			'../src/proto/custommsg',
+			'../src/proto/model',
 			'../src/util',
-			'../src/leveldbwssrv/couchbase',
 		],
 		'sources': [ 
 			'../src/leveldbwssrv/wssrv.cc',
@@ -52,10 +50,10 @@
 			'../src/util/nodeexception.h',
 			'../src/proto/packmsg.pb.cc',
 			'../src/proto/packmsg.pb.h',
-			'../src/proto/custommsg/xkcrm.pb.cc',
-			'../src/proto/custommsg/xkcrm.pb.h',
-			'../src/proto/custommsg/nosqldb.pb.cc',
-			'../src/proto/custommsg/nosqldb.pb.h',
+			'../src/proto/model/model_db.pb.cc',
+			'../src/proto/model/model_db.pb.h',
+			'../src/proto/model/model_comm.pb.cc',
+			'../src/proto/model/model_comm.pb.h',
 		],
 		'conditions': [
 			['OS=="win"', {

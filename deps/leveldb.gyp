@@ -58,8 +58,6 @@
     {
       'target_name': 'leveldb',
       'type': 'static_library',
-      'dependencies': [
-      ],
       'conditions': [
         ['use_snappy', {
           'dependencies': [
@@ -67,11 +65,7 @@
           ],
         }],
       ],
-      'direct_dependent_settings': {
-        'include_dirs': [
-          '<(leveldb_dir)/include/',
-        ],
-        'conditions': [
+     'conditions': [
           ['OS == "win"', {
             'include_dirs': [
               '<(leveldb_dir)/port/win',
@@ -94,10 +88,8 @@
 			'sources': [		 
 			'<(leveldb_dir)/port/port_posix.cc',
 			'<(leveldb_dir)/util/env_posix.cc',
-        ]
-      }],
+        ]}],
 	  ],
-      },
       'sources': [
         # Include and then exclude so that all files show up in IDEs, even if
         # they don't build.
