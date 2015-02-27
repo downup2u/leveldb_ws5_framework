@@ -74,6 +74,7 @@
 					'<(gflags_src_home)/windows/gflags/gflags_completions.h',
 					'<(gflags_src_home)/windows/config.h',
 					'<(gflags_src_home)/windows/port.h',
+					'<(gflags_src_home)/gflags_reporting.cc',
       				'<(gflags_src_home)/gflags.cc',
       				'<(gflags_src_home)/gflags_nc.cc',
       				'<(gflags_src_home)/gflags_completions.cc',

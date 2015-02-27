@@ -14,6 +14,8 @@
 			'../deps/jansson.gyp:jansson',		
 			'../deps/glog.gyp:glog',
 			'../deps/leveldb.gyp:leveldb',
+			'../deps/str2argv.gyp:str2argv',
+			'../deps/gflags.gyp:gflags',
 		],
 		'include_dirs': [
 			'../deps/boost_1_57_0',
@@ -22,6 +24,7 @@
 			'../deps/json2pb-master',
 			'../deps/glog/src',
 			'../deps/leveldb/include',
+			'../deps/str2argv',
 			'../src/proto',
 			'../src/proto/model',
 			'../src/util',
@@ -53,6 +56,9 @@
 					'Advapi32.lib',
 					'User32.lib'
 				],
+				'include_dirs': [
+					'../deps/gflags/src/windows',
+				 ]
 			}]
 		],
     }],

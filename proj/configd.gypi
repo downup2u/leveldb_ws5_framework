@@ -26,7 +26,7 @@
           }],
           ['OS=="win"', {
 		    'library_dirs': [
-				'../../libs/windebug',
+				'../libs/windebug',
 			],			
             'msvs_settings': {
               'VCCLCompilerTool': {
