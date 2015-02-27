@@ -32,3 +32,6 @@
 	path = protogen/commProtosrc
 	url = https://github.com/downup2u/commProtosrc.git
 
+[submodule "deps/cstr2argv"]
+	path = deps/cstr2argv
+	url = https://github.com/downup2u/str2argv.git

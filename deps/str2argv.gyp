@@ -7,8 +7,8 @@
 			'./config.gypi',
 		],
 		'sources': [
-            "str2argv/str2argv.h",
-            "str2argv/str2argv.c",
+            "cstr2argv/str2argv.h",
+            "cstr2argv/str2argv.c",
 		],
     },
 	]
