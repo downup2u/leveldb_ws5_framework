@@ -28,6 +28,14 @@ void wscli::start(const std::string& uri, SessionCallBack callback){
 		//throw ec;
 	}
 	client_.connect(con);
+
+	leveldb::DB* db;
+	leveldb::Options options;
+	options.create_if_missing = true;
+	leveldb::Status status = leveldb::DB::Open(options, "/tmp/testdb", &db);
+
+	//boost::shared_ptr<leveldb::DB> pDB(db);
+	//msgdispatcher_.startSrv<leveldb::DB>(pDB);
 }
 
 void wscli::on_open(websocketpp::connection_hdl hdl){

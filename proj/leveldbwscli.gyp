@@ -24,13 +24,17 @@
 			'../deps/json2pb-master',
 			'../deps/glog/src',
 			'../deps/leveldb/include',
-			'../deps/str2argv',
+			'../deps/cstr2argv',
 			'../src/proto',
 			'../src/proto/model',
 			'../src/util',
+			'../src/db',
 
 			],
 		'sources': [ 
+			'../src/db/msgdispatcher.hpp',
+			'../src/leveldbwscli/leveldbdispatcher.cc',
+			'../src/leveldbwscli/leveldbdispatcher.h',
 			'../src/leveldbwscli/wscli.cc',
 			'../src/leveldbwscli/wscli.h',
 			'../src/leveldbwscli/wsclimain.cc',

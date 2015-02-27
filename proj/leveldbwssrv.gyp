@@ -16,6 +16,7 @@
 			'../deps/jansson.gyp:jansson',		
 			'../deps/glog.gyp:glog',
 			'../deps/leveldb.gyp:leveldb',
+			'../deps/snappy.gyp:snappy',
 		],
 		'include_dirs': [
 			'../deps/boost_1_57_0',

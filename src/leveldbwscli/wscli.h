@@ -6,6 +6,9 @@
 #include <iostream>
 #include <boost/smart_ptr.hpp>
 #include "codecinmsg.h"
+#include "msgdispatcher.hpp"
+#include "leveldbdispatcher.h"
+
 typedef websocketpp::client<websocketpp::config::asio_client> client;
 typedef websocketpp::config::asio_client::message_type::ptr message_ptr;
 
@@ -27,5 +30,8 @@ private:
 	client client_;
 	SessionCallBack callback_;
 	websocketpp::connection_hdl hdl_;
+
+	msgdispatcher<leveldbdispatcher> msgdispatcher_;
+
 };
 #endif
