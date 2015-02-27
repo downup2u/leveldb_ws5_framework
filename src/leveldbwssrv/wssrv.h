@@ -11,6 +11,8 @@
 #include <map>
 #include "sessconn.h"
 
+#include "leveldb/db.h"
+
 
 
 struct custom_config : public websocketpp::config::asio {
@@ -55,6 +57,8 @@ private:
 	con_list m_connections;
 	std::mutex m_mutex;
     server m_server;
+	boost::shared_ptr<leveldb::DB> pDB_;
+
 };
 
 #endif

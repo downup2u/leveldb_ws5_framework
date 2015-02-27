@@ -3,8 +3,7 @@
 # found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 {
-  'variables': {
-    'use_snappy%': 1,
+  'variables': { 
 	'leveldb_dir':'leveldb'
   },
   'target_defaults': {
@@ -46,25 +45,17 @@
           '_REENTRANT',
           
         ]
-      }],
-      ['use_snappy', {
-        'defines': [
-          'SNAPPY=1',
-        ],
-      }],
+      }],     
     ],
   },
   'targets': [
     {
       'target_name': 'leveldb',
       'type': 'static_library',
-      'conditions': [
-        ['use_snappy', {
-          'dependencies': [
-            'snappy.gyp:snappy',
-          ],
-        }],
-      ],
+      'dependencies': [
+          'snappy.gyp:snappy',
+       ],
+       
      'conditions': [
           ['OS == "win"', {
             'include_dirs': [
@@ -171,189 +162,8 @@
         '<(leveldb_dir)/util/random.h',
         '<(leveldb_dir)/util/status.cc',
       ],
-      'sources/': [
-        ['exclude', '_(android|example|portable)\\.cc$'],
-      ],
     },
-    {
-      'target_name': 'leveldb_testutil',
-      'type': 'static_library',
-      'dependencies': [
-        'leveldb',
-      ],
-      'export_dependent_settings': [
-        # The tests use include directories from these projects.
-        'leveldb',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/histogram.cc',
-        '<(leveldb_dir)/util/histogram.h',
-        '<(leveldb_dir)/util/testharness.cc',
-        '<(leveldb_dir)/util/testharness.h',
-        '<(leveldb_dir)/util/testutil.cc',
-        '<(leveldb_dir)/util/testutil.h',
-      ],
-    },
-    {
-      'target_name': 'leveldb_arena_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/arena_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_bloom_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/bloom_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_cache_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/cache_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_coding_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/coding_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_corruption_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/corruption_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_crc32c_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/crc32c_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_db_bench',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/db_bench.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_db_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/db_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_dbformat_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/dbformat_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_env_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/util/env_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_filename_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/filename_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_log_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/log_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_skiplist_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/skiplist_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_table_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/table/table_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_version_edit_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/version_edit_test.cc',
-      ],
-    },
-    {
-      'target_name': 'leveldb_write_batch_test',
-      'type': 'executable',
-      'dependencies': [
-        'leveldb_testutil',
-      ],
-      'sources': [
-        '<(leveldb_dir)/db/write_batch_test.cc',
-      ],
-    },
+   
   ],
 }
 

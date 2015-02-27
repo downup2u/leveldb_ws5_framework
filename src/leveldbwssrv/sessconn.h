@@ -6,10 +6,10 @@
 #include <boost/thread.hpp>
 #include <boost/smart_ptr.hpp>
 
-
+#include "msgdispatcher.hpp"
 #include "sessdbdispatcher.h"
 
-class sessconn {
+class sessconn :public msgdispatcher<sessdbdispatcher> {
 public:
 	sessconn();
 	~sessconn();

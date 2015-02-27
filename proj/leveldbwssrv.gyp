@@ -3,9 +3,6 @@
 	{    
 		'target_name': "wssrv",
 		'type':'executable',
-		'defines': [
-			'LCBUV_EMBEDDED_SOURCE=1',
-		 ],	
 		 'includes':[
 			'../deps/osconfig.gypi',
 			'../proj/configd.gypi',
@@ -16,7 +13,7 @@
 			'../deps/jansson.gyp:jansson',		
 			'../deps/glog.gyp:glog',
 			'../deps/leveldb.gyp:leveldb',
-			'../deps/snappy.gyp:snappy',
+			'../deps/gflags.gyp:gflags',
 		],
 		'include_dirs': [
 			'../deps/boost_1_57_0',
@@ -30,8 +27,10 @@
 			'../src/proto',
 			'../src/proto/model',
 			'../src/util',
+			'../src/db',
 		],
 		'sources': [ 
+			'../src/db/msgdispatcher.hpp',
 			'../src/leveldbwssrv/wssrv.cc',
 			'../src/leveldbwssrv/wssrv.h',
 			'../src/leveldbwssrv/wssrvmain.cc',

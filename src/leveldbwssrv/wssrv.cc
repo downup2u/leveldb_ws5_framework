@@ -15,6 +15,13 @@ void wssrv::run(uint16_t port) {
 	m_server.listen(port);
 	// Start the server accept loop
 	m_server.start_accept();
+
+	leveldb::DB* db;
+	leveldb::Options options;
+	options.create_if_missing = true;
+	leveldb::Status status = leveldb::DB::Open(options, "/tmp/testdb", &db);
+	boost::shared_ptr<leveldb::DB> pDB(db);
+	pDB_ = pDB;
 }
 
 void wssrv::on_open(connection_hdl hdl){
@@ -24,6 +31,10 @@ void wssrv::on_open(connection_hdl hdl){
 	connection_ptr con = m_server.get_con_from_hdl(hdl);
 	std::lock_guard<std::mutex> lock(m_mutex);
 	m_connections.insert(hdl);
+
+	//msgdispatcher<sessdbdispatcher>
+	//error C2664: 'sessdbdispatcher::sessdbdispatcher(const sessdbdispatcher &)' : cannot convert argument 1 from 'boost::shared_ptr<leveldb::DB>' to 'const sessdbdispatcher &'
+	//con->startSrv<leveldb::DB>(pDB_);
 }
 
 
