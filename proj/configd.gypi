@@ -26,7 +26,7 @@
           }],
           ['OS=="win"', {
 		    'library_dirs': [
-				'<(module_root_dir)/../libs/windebug',
+				'../libs/windebug',
 			],			
             'msvs_settings': {
               'VCCLCompilerTool': {
@@ -97,17 +97,12 @@
 				'-lboost_system',
 				'-lboost_chrono',
 				'-lboost_filesystem',
-				'-lboost_regex',
-				'-lsoci_core',
-				'-lsoci_mysql',
-				'-lmysqlclient',				
+				'-lboost_regex',	
 			]
           }],
 		  ['OS=="win"', {
 			'libraries': [
-				'../libs/windebug/mysqlclient.lib',
-				'../libs/windebug/libsoci_core_3_2.lib',
-				'../libs/windebug/libsoci_mysql_3_2.lib',	
+
 	
 			],
 		 }],

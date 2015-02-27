@@ -13,6 +13,7 @@
 			'../deps/json2pb.gyp:json2pb',
 			'../deps/jansson.gyp:jansson',		
 			'../deps/glog.gyp:glog',
+			'../deps/leveldb.gyp:leveldb',
 		],
 		'include_dirs': [
 			'../deps/boost_1_57_0',

@@ -26,7 +26,7 @@
           }],
           ['OS=="win"', {
 		    'library_dirs': [
-				'<(module_root_dir)/../libs/windebug',
+				'../libs/windebug',
 			],			
             'msvs_settings': {
               'VCCLCompilerTool': {
@@ -85,7 +85,7 @@
 	'conditions': [
           ['OS=="linux"', {  
 			'variables': {
-				'include_lib_dir':'<(module_root_dir)/../libs/linux',	
+				'include_lib_dir':'../libs/linux',	
 			},	
 			'libraries':[
 				'-L<(include_lib_dir)',
@@ -107,7 +107,7 @@
           }],
 		  ['OS=="win"', {
 			'variables': {
-				'include_lib_dir':'<(module_root_dir)/../libs/win',
+				'include_lib_dir':'../libs/win',
 			},
 			'library_dirs': [
 				'<(include_lib_dir)',

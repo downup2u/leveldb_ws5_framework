@@ -15,7 +15,7 @@
 			'../deps/json2pb.gyp:json2pb',
 			'../deps/jansson.gyp:jansson',		
 			'../deps/glog.gyp:glog',
-			'../deps/uv.gyp:libuv',
+			'../deps/leveldb.gyp:leveldb',
 		],
 		'include_dirs': [
 			'../deps/boost_1_57_0',
@@ -24,7 +24,7 @@
 			'<(jansson_config_h_dir)',
 			'../deps/json2pb-master',
 			'../deps/glog/src',
-			'../deps/libuv/include',
+			'../deps/leveldb/include',
 			'../deps/encryptstring',
 			'../deps/include',
 			'../src/proto',
