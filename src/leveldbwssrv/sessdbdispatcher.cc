@@ -2,7 +2,7 @@
 #include "codec.h"
 #include <jansson.h>
 
-sessdbdispatcher::sessdbdispatcher(){
+sessdbdispatcher::sessdbdispatcher(boost::shared_ptr<leveldb::DB> pDB){
 }
 
 sessdbdispatcher::~sessdbdispatcher()

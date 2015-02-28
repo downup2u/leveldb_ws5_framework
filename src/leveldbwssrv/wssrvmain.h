@@ -9,7 +9,7 @@
 class wssrvmain :public boost::serialization::singleton<wssrvmain> {
 public:
 	wssrvmain();
-	void start(uint16_t port, const std::string& connstr, const std::string&bucketpassword = "");
+	void start();
 	void stop();
 	boost::asio::io_service&getIO(){ return io_; };
 private:

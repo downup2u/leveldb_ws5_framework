@@ -9,11 +9,8 @@
 #include <set>
 #include <thread>
 #include <map>
-#include "sessconn.h"
-
-#include "leveldb/db.h"
-
-
+#include "msgdispatcher.hpp"
+#include "sessdbdispatcher.h"
 
 struct custom_config : public websocketpp::config::asio {
 	typedef websocketpp::config::asio core;
@@ -30,7 +27,7 @@ struct custom_config : public websocketpp::config::asio {
 	typedef core::transport_type transport_type;
 	typedef core::endpoint_base endpoint_base;
 
-	typedef sessconn connection_base;
+	typedef msgdispatcher<sessdbdispatcher> connection_base;
 };
 
 typedef websocketpp::server<custom_config> server;

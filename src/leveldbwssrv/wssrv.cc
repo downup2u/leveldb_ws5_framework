@@ -1,5 +1,14 @@
 #include "wssrv.h"
 #include "codecinmsg.h"
+#include "glog.h"
+#include <gflags/gflags.h>
+
+#ifdef _WIN32
+DEFINE_string(dbpath, "f:/iteasysoft/dbdata", "database path");
+#else
+DEFINE_string(dbpath, "/var/iteasysoft/dbdata", "database path");
+#endif
+
 
 wssrv::wssrv(boost::asio::io_service&io){
 	// Initialize Asio Transport
@@ -19,9 +28,8 @@ void wssrv::run(uint16_t port) {
 	leveldb::DB* db;
 	leveldb::Options options;
 	options.create_if_missing = true;
-	leveldb::Status status = leveldb::DB::Open(options, "/tmp/testdb", &db);
-	boost::shared_ptr<leveldb::DB> pDB(db);
-	pDB_ = pDB;
+	leveldb::Status status = leveldb::DB::Open(options, FLAGS_dbpath, &db);
+	pDB_.reset(db);
 }
 
 void wssrv::on_open(connection_hdl hdl){
@@ -32,9 +40,7 @@ void wssrv::on_open(connection_hdl hdl){
 	std::lock_guard<std::mutex> lock(m_mutex);
 	m_connections.insert(hdl);
 
-	//msgdispatcher<sessdbdispatcher>
-	//error C2664: 'sessdbdispatcher::sessdbdispatcher(const sessdbdispatcher &)' : cannot convert argument 1 from 'boost::shared_ptr<leveldb::DB>' to 'const sessdbdispatcher &'
-	//con->startSrv<leveldb::DB>(pDB_);
+	con->startSrv<leveldb::DB>(pDB_);
 }
 
 

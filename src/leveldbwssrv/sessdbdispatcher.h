@@ -8,11 +8,12 @@
 #include "packmsg.pb.h"
 #include "dispatcher.hpp"
 #include "model_db.pb.h"
+#include "leveldb/db.h"
 
 typedef boost::function<void(boost::shared_ptr<comminternal::PkgMsg> pPkgMsg)> msgSrvCallback;
 class sessdbdispatcher {
 public:
-	sessdbdispatcher();
+	sessdbdispatcher(boost::shared_ptr<leveldb::DB> pDB);
 	~sessdbdispatcher();
 public:
 	void registerCallback(boost::shared_ptr<ProtobufDispatcher> msgdispatcher);

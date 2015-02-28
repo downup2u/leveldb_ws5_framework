@@ -1,5 +1,12 @@
 #include "wscli.h"
 #include "codecinmsg.h"
+#include <gflags/gflags.h>
+
+#ifdef _WIN32
+DEFINE_string(dbpath, "f:/iteasysoft/dbdata", "database path");
+#else
+DEFINE_string(dbpath, "/var/iteasysoft/dbdata", "database path");
+#endif
 
 wscli::wscli(boost::asio::io_service&io) :callback_(NULL){
 	client_.clear_access_channels(websocketpp::log::alevel::all);
@@ -32,7 +39,7 @@ void wscli::start(const std::string& uri, SessionCallBack callback){
 	leveldb::DB* db;
 	leveldb::Options options;
 	options.create_if_missing = true;
-	leveldb::Status status = leveldb::DB::Open(options, "/tmp/testdb", &db);
+	leveldb::Status status = leveldb::DB::Open(options, FLAGS_dbpath, &db);
 
 	//boost::shared_ptr<leveldb::DB> pDB(db);
 	//msgdispatcher_.startSrv<leveldb::DB>(pDB);

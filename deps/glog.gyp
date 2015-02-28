@@ -27,9 +27,12 @@
       'target_name': 'glog',
       'type': 'static_library',
 	  
-	   'includes':[
+	  'includes':[
 		'osconfig.gypi',
 	  ],
+	  'defines': [
+        'HAVE_LIB_GFLAGS=1',
+      ],
 	  'conditions': [
 	  ['OS!="win"', { 
 		  'include_dirs': [

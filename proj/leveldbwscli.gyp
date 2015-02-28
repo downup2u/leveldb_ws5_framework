@@ -32,7 +32,6 @@
 
 			],
 		'sources': [ 
-			'../src/db/msgdispatcher.hpp',
 			'../src/leveldbwscli/leveldbdispatcher.cc',
 			'../src/leveldbwscli/leveldbdispatcher.h',
 			'../src/leveldbwscli/wscli.cc',
@@ -40,6 +39,7 @@
 			'../src/leveldbwscli/wsclimain.cc',
 			'../src/leveldbwscli/wsclimain.h',
 			'../src/leveldbwscli/main.cc',
+			'../src/util/msgdispatcher.hpp',
 			'../src/util/codec.cc',
 			'../src/util/codec.h',
 			'../src/util/codecinmsg.cc',

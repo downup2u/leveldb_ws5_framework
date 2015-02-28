@@ -7,6 +7,7 @@
 
 namespace GlobalLog
 {
+	extern void initLogPath();
 	extern void initLogPath(const std::string &sPath, int nLevel);
 };
 
