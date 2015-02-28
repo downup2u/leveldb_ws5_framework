@@ -18,9 +18,13 @@ void sessdbdispatcher::registerCallback(boost::shared_ptr<ProtobufDispatcher> ms
 
 void sessdbdispatcher::onmessage_t1(boost::shared_ptr<comminternal::PkgMsg> pMsgReq, boost::shared_ptr<sample_projectname::PkgOptTable1Req> pReq, boost::shared_ptr<comminternal::PkgSessionUser> pSessionUsr, const SessionCallBack callback){
 	std::cout << "get messgage1" << std::endl;
+	boost::shared_ptr<comminternal::PkgMsg> pMsgReply = boost::make_shared<comminternal::PkgMsg>(*pMsgReq);
+	callback(pMsgReply);
 }
 
 void sessdbdispatcher::onmessage_t2(boost::shared_ptr<comminternal::PkgMsg> pMsgReq, boost::shared_ptr<sample_projectname::PkgOptTable2Req> pReq, boost::shared_ptr<comminternal::PkgSessionUser> pSessionUsr, const SessionCallBack callback){
 	std::cout << "get messgage2" << std::endl;
+	boost::shared_ptr<comminternal::PkgMsg> pMsgReply = boost::make_shared<comminternal::PkgMsg>(*pMsgReq);
+	callback(pMsgReply);
 
 }
