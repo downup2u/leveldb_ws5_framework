@@ -31,8 +31,6 @@ void wscli::start(const std::string& uri, SessionCallBack callback){
 		pPkgMsgReply->set_errdevdesc(ec.message());
 		callback(pPkgMsgReply);
 		return;
-		//std::cout << ec.message() << std::endl;
-		//throw ec;
 	}
 	client_.connect(con);
 
@@ -40,9 +38,8 @@ void wscli::start(const std::string& uri, SessionCallBack callback){
 	leveldb::Options options;
 	options.create_if_missing = true;
 	leveldb::Status status = leveldb::DB::Open(options, FLAGS_dbpath, &db);
-
-	//boost::shared_ptr<leveldb::DB> pDB(db);
-	//msgdispatcher_.startSrv<leveldb::DB>(pDB);
+	boost::shared_ptr<leveldb::DB> pDB(db);
+	msgdispatcher_.startSrv<leveldb::DB>(pDB);
 }
 
 void wscli::on_open(websocketpp::connection_hdl hdl){
@@ -51,6 +48,7 @@ void wscli::on_open(websocketpp::connection_hdl hdl){
 	pPkgMsgReply->set_issuc(true);
 	callback_(pPkgMsgReply);
 
+	LOG(INFO) << "client on_open...";
 
 }
 
@@ -59,6 +57,8 @@ void wscli::on_close(websocketpp::connection_hdl hdl){
 	boost::shared_ptr<comminternal::PkgMsg> pPkgMsgReply = codecutil::getClientMsg_InitStatus(comminternal::PkgMsg_EnMsgStatusCode_MSG_CLOSED);
 	pPkgMsgReply->set_issuc(false);
 	callback_(pPkgMsgReply);
+
+	LOG(INFO) << "client on_close...";
 }
 
 void wscli::on_message(websocketpp::connection_hdl hdl, message_ptr msg){
@@ -81,6 +81,8 @@ void wscli::on_message(websocketpp::connection_hdl hdl, message_ptr msg){
 
 void wscli::send_messsage(boost::shared_ptr<comminternal::PkgMsg> pMsgReq){
 	if (hdl_.use_count() > 0){
+		LOG(INFO) << "(send_messsage)" << codecutil::getHexFromMsg(pMsgReq);
+
 		client_.send(hdl_, codecutil::getHexFromMsg(pMsgReq), websocketpp::frame::opcode::text);
 	}
 	else{

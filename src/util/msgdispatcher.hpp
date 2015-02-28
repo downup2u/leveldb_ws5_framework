@@ -17,6 +17,8 @@ class msgdispatcher{
 public:
 	msgdispatcher(){};
 	template <typename DB> void startSrv(boost::shared_ptr<DB> pdb){
+		msgdispatcher_ = boost::make_shared<ProtobufDispatcher>();
+		pPkgSessionUser_ = boost::make_shared<comminternal::PkgSessionUser>();
 		psessdbdispatcher_ = boost::make_shared<TSessionDispatcher>(pdb);
 		psessdbdispatcher_->registerCallback(msgdispatcher_);
 	}
